@@ -1,5 +1,5 @@
 import { Canvas } from "./src/Canvas.js";
-import { Cursor } from "./src/Cursor.js";
+import { Cursor, CursorModes } from "./src/Cursor.js";
 
 const canvasElement = document.querySelector('canvas');
 const canvas = new Canvas(canvasElement);
@@ -21,24 +21,19 @@ window.exportImage = function() {
   link.click();
 }
 
-canvasElement.addEventListener('mousemove', e => {
-  cursor.draw(e, canvas.ctx);
-});
-
 canvasElement.addEventListener('pointermove', e => {
   cursor.draw(e, canvas.ctx);
 });
 
-canvasElement.addEventListener('mousedown', e => {
-  cursor.startDrawing(e, canvas.ctx)
-});
-
 canvasElement.addEventListener('pointerdown', e => {
-  cursor.startDrawing(e, canvas.ctx)
-});
+  if (e.button == 2) {
+    cursor.mode = cursor.mode == CursorModes.eraser ? CursorModes.pen : CursorModes.eraser;
+  }
 
-canvasElement.addEventListener('mouseup', _e => {
-  cursor.stopDrawing(canvas.ctx)
+  if (e.button == 0) {
+    cursor.startDrawing(e, canvas.ctx)
+  }
+
 });
 
 canvasElement.addEventListener('pointerup', _e => {

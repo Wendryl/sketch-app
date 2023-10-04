@@ -1,3 +1,5 @@
+export const CANVAS_BG = '#fffdd0';
+
 export class Canvas {
   /**
    * @param {HTMLCanvasElement} canvas
@@ -19,7 +21,7 @@ export class Canvas {
   }
 
   clear() {
-    this.ctx.fillStyle = '#fffdd0';
+    this.ctx.fillStyle = CANVAS_BG;
     this.ctx.fillRect(0, 0, this.canvasElement.width, this.canvasElement.height);
     this.resize();
   }

@@ -1,5 +1,13 @@
+import { CANVAS_BG } from "./Canvas.js";
+
+export const CursorModes = {
+  eraser: 0,
+  pen: 1,
+}
+
 export class Cursor {
   constructor() {
+    this.mode = CursorModes.pen;
     this.x = 0;
     this.y = 0;
     this.width = 1;
@@ -17,7 +25,7 @@ export class Cursor {
     ctx.setLineDash([]);
 
     ctx.lineWidth = event.type == 'mouse' ? this.width : this.width * event.pressure;
-    ctx.strokeStyle = this.color;
+    ctx.strokeStyle = this.mode == CursorModes.pen ? this.color : CANVAS_BG;
     ctx.lineCap = 'round';
 
     ctx.beginPath();
