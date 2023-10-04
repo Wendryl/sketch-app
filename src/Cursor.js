@@ -6,13 +6,28 @@ export const CursorModes = {
 }
 
 export class Cursor {
+
+  #mode = CursorModes.pen;
+
   constructor() {
-    this.mode = CursorModes.pen;
     this.x = 0;
     this.y = 0;
     this.width = 1;
     this.isDrawing = false;
     this.color = '#000';
+  }
+
+  get mode() {
+    return this.#mode;
+  }
+
+  /**
+   * @param {CursorModes} mode
+   * @param {CanvasRenderingContext2D} ctx
+   */
+  setMode(mode, ctx) {
+    ctx.canvas.style.cursor = mode == CursorModes.eraser ? 'grab' : 'cell';
+    this.#mode = mode;
   }
 
   /**

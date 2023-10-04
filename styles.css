@@ -1,3 +1,4 @@
 .main canvas {
   touch-action: none;
+  cursor: cell;
 }

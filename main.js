@@ -27,7 +27,7 @@ canvasElement.addEventListener('pointermove', e => {
 
 canvasElement.addEventListener('pointerdown', e => {
   if (e.button == 2) {
-    cursor.mode = cursor.mode == CursorModes.eraser ? CursorModes.pen : CursorModes.eraser;
+    cursor.setMode(cursor.mode == CursorModes.eraser ? CursorModes.pen : CursorModes.eraser, canvas.ctx);
   }
 
   if (e.button == 0) {
@@ -46,6 +46,6 @@ document.addEventListener('keypress', e => {
   }
 });
 
-window.addEventListener('resize', e => {
+window.addEventListener('resize', _e => {
   canvas.resize();
 });
