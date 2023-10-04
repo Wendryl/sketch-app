@@ -14,6 +14,8 @@ export class Cursor {
   draw(event, ctx) {
     if (!this.isDrawing) return;
 
+    ctx.setLineDash([]);
+
     ctx.lineWidth = event.type == 'mouse' ? this.width : this.width * event.pressure;
     ctx.strokeStyle = this.color;
     ctx.lineCap = 'round';
