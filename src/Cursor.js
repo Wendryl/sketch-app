@@ -4,6 +4,7 @@ export class Cursor {
     this.y = 0;
     this.width = 1;
     this.isDrawing = false;
+    this.color = '#000';
   }
 
   /**
@@ -14,7 +15,7 @@ export class Cursor {
     if (!this.isDrawing) return;
 
     ctx.lineWidth = event.type == 'mouse' ? this.width : this.width * event.pressure;
-    ctx.strokeStyle = '#000';
+    ctx.strokeStyle = this.color;
     ctx.lineCap = 'round';
 
     ctx.beginPath();

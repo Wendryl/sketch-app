@@ -9,6 +9,10 @@ window.updateWidth = function (event) {
   cursor.width = event.target.value;
 }
 
+window.updateColor = function (event) {
+  cursor.color = event.target.value;
+}
+
 canvasElement.addEventListener('mousemove', e => {
   cursor.draw(e, canvas.ctx);
 });

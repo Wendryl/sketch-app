@@ -8,9 +8,9 @@
 </head>
 <body>
   <div class="main">
-    <input type="color" id="color-picker">
+    <input type="color" id="color-picker" onchange="updateColor(event)">
     <input type="range" id="line-width" value="1" onchange="updateWidth(event)">
-    <canvas></canvas>
+    <canvas oncontextmenu="return false;"></canvas>
     <script src="main.js" type="module"></script>
   </div>
 </body>
