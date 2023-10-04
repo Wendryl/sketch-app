@@ -4,6 +4,10 @@ import { Cursor } from "./src/Cursor.js";
 const canvas = new Canvas(document.querySelector('canvas'));
 const cursor = new Cursor();
 
+window.updateWidth = function (event) {
+  cursor.width = event.target.value;
+}
+
 document.addEventListener('mousemove', e => {
   cursor.draw(e, canvas.ctx);
 });

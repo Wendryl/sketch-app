@@ -2,6 +2,7 @@ export class Cursor {
   constructor() {
     this.x = 0;
     this.y = 0;
+    this.width = 1;
     this.isDrawing = false;
   }
 
@@ -12,7 +13,7 @@ export class Cursor {
   draw(event, ctx) {
     if (!this.isDrawing) return;
 
-    ctx.lineWidth = 8 * event.pressure;
+    ctx.lineWidth = this.width * event.pressure;
     ctx.strokeStyle = '#000';
     ctx.lineCap = 'round';
 
