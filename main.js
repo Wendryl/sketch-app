@@ -1,34 +1,35 @@
 import { Canvas } from "./src/Canvas.js";
 import { Cursor } from "./src/Cursor.js";
 
-const canvas = new Canvas(document.querySelector('canvas'));
+const canvasElement = document.querySelector('canvas');
+const canvas = new Canvas(canvasElement);
 const cursor = new Cursor();
 
 window.updateWidth = function (event) {
   cursor.width = event.target.value;
 }
 
-document.addEventListener('mousemove', e => {
+canvasElement.addEventListener('mousemove', e => {
   cursor.draw(e, canvas.ctx);
 });
 
-document.addEventListener('pointermove', e => {
+canvasElement.addEventListener('pointermove', e => {
   cursor.draw(e, canvas.ctx);
 });
 
-document.addEventListener('mousedown', e => {
+canvasElement.addEventListener('mousedown', e => {
   cursor.startDrawing(e, canvas.ctx)
 });
 
-document.addEventListener('pointerdown', e => {
+canvasElement.addEventListener('pointerdown', e => {
   cursor.startDrawing(e, canvas.ctx)
 });
 
-document.addEventListener('mouseup', _e => {
+canvasElement.addEventListener('mouseup', _e => {
   cursor.stopDrawing(canvas.ctx)
 });
 
-document.addEventListener('pointerup', _e => {
+canvasElement.addEventListener('pointerup', _e => {
   cursor.stopDrawing(canvas.ctx)
 });
 

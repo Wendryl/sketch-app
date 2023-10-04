@@ -13,7 +13,7 @@ export class Cursor {
   draw(event, ctx) {
     if (!this.isDrawing) return;
 
-    ctx.lineWidth = this.width * event.pressure;
+    ctx.lineWidth = event.type == 'mouse' ? this.width : this.width * event.pressure;
     ctx.strokeStyle = '#000';
     ctx.lineCap = 'round';
 
