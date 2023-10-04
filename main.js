@@ -13,6 +13,14 @@ window.updateColor = function (event) {
   cursor.color = event.target.value;
 }
 
+window.exportImage = function() {
+  const link = document.createElement('a');
+  const extension = document.querySelector('#export-options').value;
+  link.download = `sketch-${Date.now()}.${extension}`;
+  link.href = canvasElement.toDataURL();
+  link.click();
+}
+
 canvasElement.addEventListener('mousemove', e => {
   cursor.draw(e, canvas.ctx);
 });
@@ -41,4 +49,8 @@ document.addEventListener('keypress', e => {
   if (e.key == 'C') {
     canvas.clear();
   }
+});
+
+window.addEventListener('resize', e => {
+  canvas.resize();
 });

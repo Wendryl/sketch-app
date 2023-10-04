@@ -10,6 +10,11 @@
   <div class="main">
     <input type="color" id="color-picker" onchange="updateColor(event)">
     <input type="range" id="line-width" value="1" onchange="updateWidth(event)">
+    <select id="export-options">
+      <option value="png">png</option>
+      <option value="jpg">jpg</option>
+    </select>
+    <button id="export-button" onclick="exportImage()">Export Canvas</button>
     <canvas oncontextmenu="return false;"></canvas>
     <script src="main.js" type="module"></script>
   </div>

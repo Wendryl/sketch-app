@@ -19,6 +19,7 @@ export class Cursor {
     ctx.lineCap = 'round';
 
     ctx.beginPath();
+    ctx.lineJoin = 'round';
     ctx.moveTo(this.x, this.y);
 
     this.updatePosition(event, ctx);
