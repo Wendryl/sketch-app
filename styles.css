@@ -1,0 +1,14 @@
+#color-picker {
+  position: absolute;
+  margin: 15px;
+}
+
+#line-width {
+  position: absolute;
+  margin: 15px 80px;
+}
+
+.main canvas {
+  touch-action: none;
+  cursor: cell;
+}
