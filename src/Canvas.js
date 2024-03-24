@@ -1,4 +1,4 @@
-export const CANVAS_BG = '#fffdd0';
+export const CANVAS_BG = '#fff';
 
 export class Canvas {
   /**
@@ -15,7 +15,7 @@ export class Canvas {
     this.canvasElement.height = window.innerHeight - 30;
     this.ctx.strokeStyle = '#333';
     this.ctx.setLineDash([5]);
-    this.ctx.fillStyle = '#fffdd0';
+    this.ctx.fillStyle = CANVAS_BG;
     this.ctx.fillRect(0, 0, this.canvasElement.width, this.canvasElement.height);
     this.ctx.strokeRect(0, 0, this.canvasElement.width, this.canvasElement.height);
   }
